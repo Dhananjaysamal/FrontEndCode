@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>Hello Test Page</title>
+    <link rel="styleSheet" href="C:/Users/Dhananjay samal/Desktop/FrontEnd-Training/styleSheet.css" />
+</head>
+
+
+
+<body>
+
+</body>
+</html>
+
+<style>
+
+    div.outside-container {
+        background-color: white;
+        height: 900px;
+        width :800px;
+        margin-left: 50px;
+    }
+
+    div.inner-container {
+        background-color: #3f6eb591;
+        width: 70%;
+        height: 60%;
+        margin-right:40px;
+    }
+
+    div p {
+        color: forestgreen;
+        font-display: block;
+        font-size: 200%;
+        border: 1px solid powderblue;
+    }
+
+
+    div h1 {
+        color: white;
+        font-family: initial;
+        font-size: 50px;
+        text-align: center;
+        border-bottom: 2px solid white;
+        width: 380px;
+        margin-left: 20%;
+    }
+
+    div form {
+        margin-left: 20%;
+        width: 380px;
+        height: 30%;
+        margin-bottom: 10%;
+    }
+
+    br ~ button {
+        width: 25%;
+        height: 25%;
+        margin-left: 7%;
+        background-color: #00000047;
+        border: thin;
+    }
+
+    br + button {
+        background-color: #006bff66;
+        margin-left: 25%;
+    }
+
+    input[type=text] {
+        border: 1px solid black;
+        padding: 6px 20px;
+        width: 50%;
+        margin-right: 10px;
+    }
+
+    input[type=password] {
+        border: 1px solid black;
+        padding: 6px 20px;
+        width: 50%;
+        margin-left: 7px;
+    }
+
+    input[type=email] {
+        border: 1px solid black;
+        padding: 6px 20px;
+        width: 50%;
+        margin-left: 30px;
+    }
+
+    #skillSetListId {
+        border: 1px solid black;
+        padding: 6px 20px;
+        width: 50%;
+        margin-left: 18px;
+    }
+
+    input[type=number] {
+        border: 1px solid black;
+        padding: 6px 20px;
+        width: 50%;
+        margin-left: 40px;
+    }
+
+    #pancardNumber {
+        border: 1px solid black;
+        padding: 6px 15px;
+        width: 50%;
+        margin-right: 8px;
+    }
+
+    select {
+        width: 50%;
+        border: 1px solid black;
+        padding: 6px 20px;
+        width: 60%;
+        margin-left: 8px;
+    }
+
+    label {
+    }
+</style>
+
+<div class="outside-container">
+    <div class="inner-container">
+        <h1>User Information</h1>
+
+        <form class="User" action="page2.html">
+
+            <label for="name">Your name:</label>
+            <input type="text" id="firstName" autofocus autocomplete="true" required placeholder="Your name" /><br /><br />
+            <label for="password">Password:</label>
+            <input type="password" name="=password" required placeholder="passoword" /><br />
+            <input type="hidden" name="salary" value="10000" />
+            <br />
+            <label for="email">Email:</label>
+            <input type="email" name="Email" pattern="[a-zA-Z0-9._-]*@hcl.com" required placeholder="Your Email id" /><br /><br />
+            <label for="msg">Skill set:</label>
+            <input list="skillSetId" id="skillSetListId" name="skillSetListId" placeholder="skillset" />
+            <datalist id="skillSetId">
+                <option value="Java">
+                <option value=".Net">
+                <option value="Angular">
+                <option value="React">
+                <option value="Microservices">
+            </datalist><br /><br />
+            <label for="Language">Language:</label>
+            <select id="Language" name="country">
+                <option value="select">Select</option>
+                <option value="Hindi">Hindi</option>
+                <option value="English" autofocus="true">English</option>
+                <option value="Spanish">Spanish</option>
+            </select><br /><br />
+            <label for="msg">Age :</label>
+            <input type="number" step=10 placeholder="Age" /><br /><br />
+            <label for="panNumber">Pan Number:</label>
+            <input id="pancardNumber" type="text" pattern="[a-zA-Z0-9]" placeholder="PAN NUMBER" /><br />
+
+            <br/>
+            <button name="submit">SUBMIT</button>
+            <button name="Reset">RESET</button>
+           
+        </form>
+    </div>
+</div>
+
