@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Update user Details</title>
+</head>
+<body>
+
+    <input type="text" name="userName" placeholder="Your Name" id="uname" />
+    <input type="text" name="company" placeholder="Organisation Name" id="org" />
+    <input type="text" name="sapId" placeholder="SapId" id="sapId"/>
+    <input type="text" name="MobileNumber" placeholder="MobileNumber" id="mobNumber" />
+    <input type="email" name="Email" placeholder="Your Email address" id="email" />
+    <input type="text" name="Gender" placeholder="Gender" id="gender" />
+    <button onclick="updateUser()">Update</button>
+
+
+    <script>
+        var localStorageData = localStorage.getItem("userDetails");
+        var userData = JSON.parse(localStorageData);
+        document.getElementById("uname").value = userData.userName;
+        document.getElementById("org").value = userData.company;
+        document.getElementById("sapId").value = userData.sapId;
+        document.getElementById("email").value = userData.email;
+        document.getElementById("gender").value = userData.gender;
+        document.getElementById("mobNumber").value = userData.mobileNumber;
+        function updateUser() {
+            var updateUserName = document.getElementById("uname").value;
+            var updateCompany = document.getElementById("org").value;
+            var updateSapId = document.getElementById("sapId").value;
+            var updateEmail = document.getElementById("email").value;
+            var updateGender = document.getElementById("gender").value;
+            var updateMobileNumber = document.getElementById("mobNumber").value;
+
+            var saveObject = {userName: updateUserName, mobileNumber: updateMobileNumber, company: updateCompany, sapId: updateSapId, email: updateEmail, gender: updateGender };
+            console.log(saveObject);
+
+            var httpReq;
+            if (window.XMLHttpRequest) {
+                httpReq = new XMLHttpRequest();
+            } else {
+                httpReq = new ActiveXObject();
+            }
+
+            httpReq.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("updatemsg").innerHTML = " User updated successfully :";
+                }
+            }
+            httpReq.open("PUT", "http://localhost:3004/users/" + userData.id, true);
+            httpReq.setRequestHeader("Content-type", "application/json");
+            console.log(saveObject)
+            httpReq.send(JSON.stringify(saveObject));
+        }
+
+
+    </script>
+
+    <style>
+    </style>
+
+    <div>
+        <p id="updatemsg">
+
+        </p>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>User Details</title>
+   
+</head>
+<body>
+    <style>
+        .userdetailsdividion{
+            border: 2px solid white;
+            height:400px;
+            width:500px;
+            background-color:greenyellow;
+            margin-left:20% ;
+           margin-top:10%;
+        }
+        #user {
+            border-bottom: 4px solid blue;
+            margin-left: 40%;
+            color: white;
+            font-family: Dubai;
+            font-size: 30px;
+        }
+        #userform{
+            margin-top:5%;
+            margin-left:20%;
+        }
+
+        input {
+            margin-right:20px;
+            margin-top:10px;
+            padding: 5px 13px;
+            float:right;
+        }
+        label {
+            width: 100px;
+            margin-right: 20px;
+            margin-top: 10px;
+            float: left;
+            clear: both;
+        }
+        button {
+            float: right;
+            margin-top: 20px;
+            margin-right: 30px;
+            clear: both;
+            background-color: crimson;
+            border: 2px solid crimson;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+                  }
+        input label {
+            display: flex;
+            flex-direction: row;
+        }
+        #loadUser{
+            background-color:aqua;
+            border-color:chocolate;
+            color:black;
+        }
+    </style>
+    <script>
+        function formSubmit() {
+            // Avoid default submission of form using an event with  using anonymous function
+            document.getElementById("saveButton").addEventListener("click", function (event) {
+              event.preventDefault();
+            });
+            var formFields = document.querySelectorAll("input");
+            var id = formFields[0].value;
+            var userName = formFields[1].value;
+            var company = formFields[2].value;
+            var sapId = formFields[3].value;
+            var mobileNumber = formFields[4].value;
+            var email = formFields[5].value;
+            var gender = formFields[6].value;
+           
+            saveFormData(id,userName, company, sapId, mobileNumber, email, gender);
+                     
+        }
+
+        function saveFormData(id,userName, company, sapId, mobileNumber, email, gender) {
+
+            var formdata = {
+                id:id,
+                userName:userName,
+                company:company,
+                sapId:sapId,
+                mobileNumber:mobileNumber,
+                email:email,
+                gender:gender
+            };
+           var sendData =  JSON.stringify(formdata);
+            var xhttp;
+            if (window.XMLHttpRequest) {
+                xhttp = new XMLHttpRequest();
+            }
+           
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 201) {
+                    document.getElementById("demo").innerHTML = " User Added successfully :";
+                    JSON.parse(this.response);
+                   } 
+            }
+            xhttp.open("POST", "http://localhost:3004/users", true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            console.log(sendData)
+            xhttp.send(sendData);
+                    }
+
+        function getUserData() {
+            var httpReq;
+            if (window.XMLHttpRequest) {
+                httpReq = new XMLHttpRequest();
+            } else {
+                httpReq = new ActiveXObject();
+            }
+            httpReq.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    generate_table(this.response);
+                }
+            }
+            httpReq.open("GET", "http://localhost:3004/users", true);
+            httpReq.send();
+        }
+
+        function generate_table(response) {
+            document.designMode = "on";
+            // get the reference for the body
+            var body = document.getElementsByTagName("body")[0];
+
+            // creates a <table> element and a <tbody> element
+            var tbl = document.createElement("table");
+
+            // set table design here
+           // tb1.setAttribute("style","color:lightskyblue;")
+           
+            var header = document.createElement('thead');
+            var headingRow = document.createElement('tr');
+
+           // header.style.backgroundColor = green;
+            header.setAttribute("style", "background-color:green; font-size:20px; font-family: Dubai;");
+
+            var headingCell1 = document.createElement('td');
+            var headingText1 = document.createTextNode('ID');
+            headingCell1.appendChild(headingText1);
+            headingRow.appendChild(headingCell1);
+
+            var headingCell2 = document.createElement('td');
+            var headingText2 = document.createTextNode('userName');
+            headingCell2.appendChild(headingText2);
+            headingRow.appendChild(headingCell2);
+
+            var headingCell3 = document.createElement('td');
+            var headingText3 = document.createTextNode('company');
+            headingCell3.appendChild(headingText3);
+            headingRow.appendChild(headingCell3);
+
+            var headingCell4 = document.createElement('td');
+            var headingText4 = document.createTextNode('sapId');
+            headingCell4.appendChild(headingText4);
+            headingRow.appendChild(headingCell4);
+
+            var headingCell5 = document.createElement('td');
+            var headingText5 = document.createTextNode('MobileNumber');
+            headingCell5.appendChild(headingText5);
+            headingRow.appendChild(headingCell5);
+
+            var headingCell6 = document.createElement('td');
+            var headingText6 = document.createTextNode('Email');
+            headingCell6.appendChild(headingText6);
+            headingRow.appendChild(headingCell6);
+
+            var headingCell7 = document.createElement('td');
+            var headingText7 = document.createTextNode('Gender');
+            headingCell7.appendChild(headingText7);
+            headingRow.appendChild(headingCell7);
+
+            var actionColumn = document.createElement('td');
+            var actionText = document.createTextNode('Action');
+            actionColumn.appendChild(actionText);
+            headingRow.appendChild(actionColumn);
+
+
+            header.appendChild(headingRow)
+            tbl.appendChild(header)
+
+
+            var tblBody = document.createElement("tbody");
+            var data = JSON.parse(response);
+            var tableRowLength = data.length;
+            if (tableRowLength > 0) {
+                // creating all cells
+                for (var i = 0; i < tableRowLength; i++) {
+                    // creates a table row
+                    var row = document.createElement("tr");
+                                  
+                    var td1 = document.createElement("td");
+                    var td1Text = document.createTextNode(data[i].id);
+                    td1.appendChild(td1Text);
+                    row.appendChild(td1);
+
+                    var td2 = document.createElement("td");
+                    var td2Text = document.createTextNode(data[i].userName);
+                    td2.appendChild(td2Text);
+                    row.appendChild(td2);
+
+                    var td3 = document.createElement("td");
+                    var td3Text = document.createTextNode(data[i].company);
+                    td3.appendChild(td3Text);
+                    row.appendChild(td3);
+
+                    var td4 = document.createElement("td");
+                    var td4Text = document.createTextNode(data[i].sapId);
+                    td4.appendChild(td4Text);
+                    row.appendChild(td4);
+
+                    var td5 = document.createElement("td");
+                    var td5Text = document.createTextNode(data[i].mobileNumber);
+                    td5.appendChild(td5Text);
+                    row.appendChild(td5);
+
+                    var td6 = document.createElement("td");
+                    var td6Text = document.createTextNode(data[i].email);
+                    td6.appendChild(td6Text);
+                    row.appendChild(td6);
+
+
+                    var td7 = document.createElement("td");
+                    var td7Text = document.createTextNode(data[i].gender);
+                    td7.appendChild(td7Text);
+                    row.appendChild(td7);
+
+                    var td8 = document.createElement('td');
+                   // td8.innerHTML('<button>Delete</button><button>Update</button>');
+
+                    var deleteBtn = document.createElement('button');
+
+                    deleteBtn.addEventListener('click', function () {
+                        var data = this.parentElement.parentElement.cells;
+                        var jsonObject = {
+                            id: data[0].innerHTML, userName: data[1].innerHTML, company: data[2].innerHTML,
+                            sapId: data[3].innerHTML, mobileNumber: data[4].innerHTML, email: data[5].innerHTML,
+                            gender: data[6].innerHTML
+                        };
+                        localStorage.setItem("deleteUserDetails", JSON.stringify(jsonObject));
+                        window.location.assign("Delete.html");
+                    })
+
+                    var deleteBtnText = document.createTextNode('Delete');
+                    deleteBtn.appendChild(deleteBtnText);
+
+                    var updateBtn = document.createElement('button');
+                    updateBtn.addEventListener('click', function () {
+                        var data = this.parentElement.parentElement.cells;
+                        var jsonObject = {
+                            id: data[0].innerHTML, userName: data[1].innerHTML, company: data[2].innerHTML,
+                            sapId: data[3].innerHTML, mobileNumber: data[4].innerHTML, email: data[5].innerHTML,
+                            gender: data[6].innerHTML
+                        };
+                        localStorage.setItem("userDetails", JSON.stringify(jsonObject));
+                        window.location.assign("update.html");
+                    })
+                    var updateBtnText = document.createTextNode('Update');
+                    updateBtn.appendChild(updateBtnText);
+
+                    td8.appendChild(updateBtn);
+                    td8.appendChild(deleteBtn);
+                    row.appendChild(td8);   
+                    
+                    // add the row to the end of the table body
+                    tblBody.appendChild(row);
+                }
+            }
+            // put the <tbody> in the <table>
+            tbl.appendChild(tblBody);
+            // appends <table> into <body>
+            body.appendChild(tbl);
+            // sets the border attribute of tbl to 1;
+            tbl.setAttribute("border", "1");
+        }
+
+    </script>
+
+
+    <div class="userdetailsdividion">
+        <span id="user">User Details</span>
+        <form action="" id="userform" method="post" class="userformcls">
+            <label for="Id">Id</label>
+            <input type="text" name="Id" placeholder="ID" />
+
+            <label for="userName">Your name</label>
+
+            <input type="text" name="userName" placeholder="Your Name" />
+            <label for="Company">Company</label>
+
+            <input type="text" name="company" placeholder="Organisation Name" />
+            <label for="SapId">SapId</label>
+            <input type="text" name="sapId" placeholder="SapId" />
+            <label for="MobileNumber">MobileNumber</label>
+
+            <input type="text" name="MobileNumber" placeholder="MobileNumber" />
+            <label for="Email">Email</label>
+
+            <input type="email" name="Email" placeholder="Your Email address" />
+            <label for="Gender">Gender</label>
+
+            <input type="text" name="Gender" placeholder="Gender" /><br />
+            <button onclick="formSubmit()" id="saveButton">Save</button>
+
+        </form>
+    </div>
+
+    <div id="userDetailsTable" class="userDetails">
+
+        <p id="demo"> </p><br/>
+
+    </div>
+    <div id="userTable">
+        <button onclick="getUserData()" id="loadUser">Load All Users</button>
+
+    </div>
+
+</body>
+</html>
