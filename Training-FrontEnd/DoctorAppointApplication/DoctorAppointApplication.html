@@ -1,0 +1,1086 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DoctorsAppointApplication.com</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+        body {
+            background-color: white;
+            min-width: 900px;
+            min-height: 900px;
+        }
+
+
+        .maincontainer {
+            width: 800px;
+            height: 630px;
+            background-color: white;
+            border: 2px solid #3f6eb591;
+            margin-left: 100px;
+        }
+
+        .innercontainer {
+            width: 780px;
+            height: 625px;
+            border: 3px solid #3f6eb591;
+            background-color: white;
+            margin-left: 10px;
+        }
+
+
+        .headerdiv {
+            overflow: auto;
+            border-bottom: 2px solid #3f6eb591;
+            height: 55px;
+            background-color: #3f6eb591;
+        }
+
+            .headerdiv button {
+                margin-left: 20px;
+                margin-top: 10px;
+                border-radius: 8px;
+                padding: 8px 15px;
+            }
+
+        #bookmarkid {
+            float: right;
+            height: 20px;
+            width: 30px;
+            background-color: #3f6eb591;
+            margin-top: 15px;
+            border-radius: 50%;
+        }
+
+
+        .footdiv {
+            width: 100%;
+            height: 11%;
+            background-color: #3f6eb591;
+            background-color: #3f6eb591;
+            
+        }
+
+            .footdiv p {
+                text-align: center;
+                margin-top: 1px;
+            }
+
+        .innerdivbody {
+            width: 100%;
+            height: 500px;
+            background-color: white;
+        }
+
+        .navcls {
+            margin-right: 5px;
+            float: left;
+            width: 18%;
+            height: 498px;
+            background: #3f6eb591;
+            padding-left: 19px;
+            border: 1px solid #3f6eb591;
+        }
+
+            .navcls li {
+                list-style-type: none;
+            }
+
+        li a {
+            color: white;
+            font-size: large;
+            font-weight: bold;
+        }
+
+        .imagediv {
+            margin-left: 21%;
+            width: 79%;
+            height: 500px;
+            background-color: white;
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav .login-container {
+                float: none;
+            }
+        }
+
+        /*  User Registration starts here*/
+
+
+        .userdetailsdividion {
+            border: 2px solid greenyellow;
+            height: 400px;
+            width: 400px;
+            background-color: greenyellow;
+            margin-left: 40px;
+            margin-top: 20px;
+        }
+
+        #user {
+            border-bottom: 4px solid blue;
+            margin-left: 30%;
+            color: white;
+            font-family: Dubai;
+            font-size: 30px;
+        }
+
+
+        input {
+            padding: 5px 13px;
+            float: right;
+            margin-right: 15px;
+            margin-top: 5px;
+                    }
+
+        label {
+            float: left;
+            clear: right;
+            margin-left: 5px;
+            margin-top: 5px;
+            color: black;
+        }
+
+        input label {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #saveButton {
+            background-color: rosybrown;
+            float: right;
+            margin-top: 70px;
+        }
+        #role {
+            float: right;
+            margin-top: 10px;
+            margin-right:90px;
+            padding:5px 10px;
+        }
+        #save {
+            float: right;
+            margin-top: 50px;
+            margin-left: 40px;
+            padding: 6px 20px;
+            background-color: cornflowerblue;
+        }
+        .error {
+            color: red;
+            font-size: 120%;
+        }
+       
+        /*   login starts here */
+        #loginDisplay {
+            border: 2px solid greenyellow;
+            height: 300px;
+            width: 330px;
+            background-color: greenyellow;
+           
+        }
+
+        #ulogin {
+            margin-left: 60px;
+            margin-top: 40px;
+        }
+        /*   Product starts here */
+        button {
+            background-color: cornflowerblue;
+        }
+
+        /* order starts here*/
+
+        #orderId {
+            overflow: auto;
+        }
+        #searchDoctor {
+            overflow: auto;
+        }
+        #addSoltMsg{
+            overflow:auto;
+        }
+    </style>
+</head>
+<body>
+<div class="maincontainer">
+    <div class="innercontainer">
+        <div class="headerdiv">
+            <header>
+                <button name="home" class="home">HOME</button>
+                <button name="register" class="registeration" value="register" id="register" onclick="registration()">REGISTRATION</button>
+                <button name="login" value="login" id="login" class="userlogin" onclick="login()">LOG IN</button>
+                <img src="C:/Users/Dhananjay samal/Desktop/FrontEnd-Training/bookmark-1.png" alt="Bookmark" id="bookmarkid" />
+            </header>
+        </div>
+
+        <div class="innerdivbody">
+            <section>
+
+                <div class="navcls" id="navid">
+                    <nav>
+                        <ul>
+                            <li><a href="#" onclick="searchDoctor()" id="doctor">Search Doctor</a></li>&nbsp;&nbsp;&nbsp;
+                            <li><a href="#" onclick="addSolt()" id="addslot">AddSlot</a></li>&nbsp;&nbsp;&nbsp;
+                            </ul>
+                    </nav>
+                </div>
+
+                <div class="imagediv" id="imagediv">
+                    <!--  reg div starts -->
+                    <div id="regDisplay" style="display: none" class="error">
+                        <!--div w3-include-html="Registration.html"></div>-->
+                        <div class="userdetailsdividion">
+                            <span id="user">User Registration</span>
+                            <!-- <form action="#" name="userform" method="post" class="userformcls" onsubmit="return registerFormSubmit()">-->
+                            <label for="userName">Your name</label>
+                            <input type="text" id="userName" name="userName" placeholder="Your Name" />
+                            <div class="error" id="nameErr"></div>
+                            <label for="Email">Email</label>
+                            <input type="email" name="email" id="email" placeholder="Your Email address" />
+                            <div class="error" id="emailErr"></div>
+                            <label for="MobileNumber">MobileNumber</label>
+                            <input type="text" name="mobileNumber" id="mobileNumber" placeholder="MobileNumber" />
+                            <div class="error" id="mobileErr"></div>
+                            <label for="address">Address</label>
+                            <input type="text" name="address" id="address" placeholder="Address" />
+                            <div class="error" id="addErr"></div>
+                            <label for="role">Role</label>
+                            <select id="role" name="role">
+                                <option value="select">Select</option>
+                                <option value="Doctor">Doctor</option>
+                                <option value="patient" autofocus="true">patient</option>
+                            </select>
+                            <div class="error" id="roleErr"></div>
+                            <!-- <input type="submit" value="Save" id="save" onsubmit="return registerFormSubmit()" />-->
+                            <button onclick=" return registerFormSubmit()" id="saveButton" value="save">Save</button>
+                            <!-- </form>-->
+                        </div>
+                    </div>
+                    <div id="userDetailsTable" class="error" style="display: none">
+
+                        <p id="demo">  </p><br />
+
+                    </div>
+                    <!--  reg div end -->
+                    <!--  Log in div starts -->
+                    <div id="loginDisplay" style="display: none" class="error">
+                        <label for="userName">Your Userid</label>
+                        <input type="text" name="loginId" placeholder="Your Email" id="loginId" />
+                        <div class="error" id="idErr"></div>
+                        <label for="password">Password</label>
+                        <input type="password" name="password" placeholder="password" id="password" />
+                        <div class="error" id="passErr"></div>
+                        <button onclick="return validateReq()" name="ulogin" id="ulogin" value="ulogin">Login</button>
+                    </div>
+
+                    <div id="loginMsgId" class="error" style="display: none">
+
+                        <p id="loginMsg">  </p><br />
+
+                    </div>
+                    <!--  login div end -->
+                    <!-- search doctor starts-->
+                    <div id="searchDoctor" style="display: none">
+                        <div id="productMsg">Available Doctors: </div><br />
+                    </div>
+
+                    <!-- search doctor end-->
+                    <!-- book slot starts-->
+                    <div id="slotId" class="cart" style="display: none">
+                        <p id="cartMsg">Available Slots: </p><br />
+                    </div>
+                    <div id="allslotId" class="cart" style="display: none">
+                        <p id="allcarts">Your Slots: </p><br />
+                    </div>
+                    <!--book  slot end-->
+                    <!-- Add slot starts-->
+                    <div id="addSoltMsg" class="cart" style="display: none">
+                        <p id="allorders">Your Appointment Slots: </p><br />
+                    </div>
+                    <!-- Add slot end-->
+                </div>
+
+
+            </section>
+        </div>
+    <div class="footdiv">
+            <footer>
+                <p>@Copyright 2020</p>
+            </footer>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var isLoggedIn;
+    function registration() {
+        var regElement = document.getElementById("register");
+        var regDisplayBlock = document.getElementById("regDisplay");
+        var loginDisplayBlock = document.getElementById("loginDisplay");
+        var regSuccessdisplayBlock = document.getElementById("userDetailsTable");
+        var loginMsgdisplayBlock = document.getElementById("loginMsgId");
+        var slotMsgDisplay = document.getElementById("allslotId");
+        var searchDoctorDivdisplayBlock = document.getElementById("searchDoctor");
+        var slotDivDisplay = document.getElementById("slotId");
+        var addSlotMsgDisplay = document.getElementById("addSoltMsg");
+       
+
+        if (regElement.value == "register") {
+
+            regDisplayBlock.style.display = "block";
+            loginDisplayBlock.style.display = "none";
+            regSuccessdisplayBlock.style.display = "none";
+            loginMsgdisplayBlock.style.display = "none";
+            slotMsgDisplay.style.display = "none";
+            searchDoctorDivdisplayBlock.style.display = "none";
+            slotDivDisplay.style.display = "none";
+            addSlotMsgDisplay.style.display = "none";
+          
+        } else {
+            regDisplayBlock.style.display = "none";
+        }
+    }
+    function printError(elemId, hintMsg) {
+        document.getElementById(elemId).innerHTML = hintMsg;
+    }
+
+    function registerFormSubmit() {
+        var regDisplayBlock = document.getElementById("regDisplay");
+        var role = document.getElementById("role").value;
+
+        var userName = document.getElementById("userName").value;
+        var email = document.getElementById("email").value;
+        var mobileNumber = document.getElementById("mobileNumber").value;
+        var address = document.getElementById("address").value;
+        var password = generatePassword();
+        var nameErr = emailErr = mobileErr = roleErr = addErr = true;
+        if (userName == "") {
+            printError("nameErr", "Please enter your name");
+        } else {
+            printError("nameErr", "");
+            nameErr = false;
+        }
+
+        if (email == "") {
+            printError("emailErr", "Please enter your email address");
+        } else {
+            // Regular expression for basic email validation
+            var regex = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            if (regex.test(email) === false) {
+                printError("emailErr", "Please enter a valid email address");
+            } else {
+                printError("emailErr", "");
+                emailErr = false;
+            }
+        }
+
+        if (mobileNumber == "") {
+            printError("mobileErr", "Please Enter your MobileNumber");
+        } else {
+            var reg = /^\d{10}$/
+            if (reg.test(mobileNumber) === false) {
+                printError("mobileErr", "Please enter 10 digit MobileNumber");
+            } else {
+                printError("mobileErr", "");
+                mobileErr = false;
+            }
+        }
+        if (role == "select") {
+            printError("roleErr", "Please select your role");
+        } else {
+            printError("roleErr", "");
+            roleErr = false;
+        }
+        if (address == "") {
+            printError("addErr", "Please Enter your address");
+        } else {
+            printError("addErr", "");
+            addErr = false;
+        }
+  // Prevent the form from being submitted if there are any errors
+        if ((nameErr || emailErr || mobileErr || addErr || roleErr) == true) {
+            regDisplayBlock.style.display = "block";
+            return false;
+        }
+        saveFormData(userName, password, email, mobileNumber, address, role);
+     
+                }
+
+    function generatePassword() {
+        var pwdChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        var pwdLen = 10;
+        var randPassword = Array(pwdLen).fill(pwdChars).map(function (x) { return x[Math.floor(Math.random() * x.length)] }).join('');
+        return randPassword;
+    }
+       function saveFormData(userName, password, email, mobileNumber, address,role) {
+        
+        var formdata = {
+            id: email,
+            userName: userName,
+            password: password,
+            mobileNumber: mobileNumber,
+            address: address,
+            role:role
+           };
+          
+        var sendData = JSON.stringify(formdata);
+        var xhttp;
+        if (window.XMLHttpRequest) {
+            xhttp = new XMLHttpRequest();
+        } else {
+            xhttp = new ActiveXObject();
+        }
+           var displayBlock = document.getElementById("userDetailsTable");
+           var slotDivDisplay = document.getElementById("slotId");
+           var slotMsgDisplay = document.getElementById("allslotId");
+           var addSlotMsgDisplay = document.getElementById("addSoltMsg");
+           var searchDoctorDivdisplayBlock = document.getElementById("searchDoctor");
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+                if (this.response != "") {
+                var ele = document.getElementById("saveButton");
+               var loginMsgdisplayBlock = document.getElementById("loginMsgId");
+                    if (ele != null && ele.value == "save") {
+                        displayBlock.style.display = "block";
+                        var regDisplayBlock = document.getElementById("regDisplay");
+                        regDisplayBlock.style.display = "none";
+                        loginMsgdisplayBlock.style.display = "none";
+                        searchDoctorDivdisplayBlock.style.display = "none";
+                        addSlotMsgDisplay.style.display = "none";
+                        slotMsgDisplay.style.display = "none";
+                        slotDivDisplay.style.display = "none";
+                        document.getElementById("demo").innerHTML = "User Added successfully :";
+                        JSON.parse(this.response);
+                    } 
+                } else {
+                    displayBlock.style.display = "block";
+                    document.getElementById("demo").innerHTML = " User registration failed due to data base connection :";
+                }
+                if (role == "Doctor") {
+                    var doctorInformation = {
+                        id: email,
+                        doctorName: userName,
+                        availablity: "Yes",
+                        mobileNumber: mobileNumber,
+                        slotTime: "from 9.30AM to 2 PM,from 4.30AM to 6 PM",
+                        hospitalAddress: address,
+                        date: new Date()
+                    };
+                    var doctorsData = JSON.stringify(doctorInformation);
+                    xhttp.open("POST", "http://localhost:3000/doctorinformation", true);
+                    xhttp.setRequestHeader("Content-type", "application/json");
+                    xhttp.send(doctorsData);
+                }
+
+            } 
+           }
+          
+        xhttp.open("POST", "http://localhost:3000/users", true);
+        xhttp.setRequestHeader("Content-type", "application/json");
+        console.log(sendData)
+         xhttp.send(sendData);
+             }
+
+   
+    function login() {
+
+        var ele = document.getElementById("login");
+        var loginDisplayBlock = document.getElementById("loginDisplay");
+
+        var regDisplayBlock = document.getElementById("regDisplay");
+        var regSuccessdisplayBlock = document.getElementById("userDetailsTable");
+        var loginMsgdisplayBlock = document.getElementById("loginMsgId");
+        var slotDivDisplay = document.getElementById("slotId");
+        var searchDoctorDivdisplayBlock = document.getElementById("searchDoctor");
+        var slotMsgDisplay = document.getElementById("allslotId");
+
+       
+        var addSlotMsgDisplay = document.getElementById("addSoltMsg");
+        
+       if (ele != null && ele.value == "login") {
+            loginDisplayBlock.style.display = "block";
+            regDisplayBlock.style.display = "none";
+            regSuccessdisplayBlock.style.display = "none";
+           loginMsgdisplayBlock.style.display = "none";
+           slotDivDisplay.style.display = "none";
+           searchDoctorDivdisplayBlock.style.display = "none";
+           slotMsgDisplay.style.display = "none";
+           addSlotMsgDisplay.style.display = "none";
+
+             } else {
+            loginDisplayBlock.style.display = "none";
+        }
+    }
+
+    function validateReq() {
+        var  idErr = passErr  = true;
+        var email = document.getElementById("loginId").value;
+        var password = document.getElementById("password").value;
+       var loginDisplayBlock = document.getElementById("loginDisplay");
+        if (email == "") {
+            printError("idErr", "Please enter your email address");
+        } else {
+            var regex = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            if (regex.test(email) === false) {
+                printError("idErr", "Please enter a valid email address");
+            } else {
+                printError("idErr", "");
+                idErr = false;
+            }
+        }
+       if (password == "") {
+            printError("passErr", "Please enter your Password");
+        } else {
+            printError("passErr", "");
+            passErr = false;
+        }
+        if (passErr || idErr === true) {
+            loginDisplayBlock.style.display = "block";
+            return false;
+        }
+        credentialCheck(email, password);
+    }
+    function credentialCheck(loginId, password) {
+        var httpReq;
+        if (window.XMLHttpRequest) {
+            httpReq = new XMLHttpRequest();
+        } else {
+            httpReq = new ActiveXObject();
+        }
+        var loginMsgdisplayBlock = document.getElementById("loginMsgId");
+        var regDisplayBlock = document.getElementById("regDisplay");
+        var loginDisplayBlock = document.getElementById("loginDisplay");
+        var regSuccessdisplayBlock = document.getElementById("userDetailsTable");
+        var slotDivDisplay = document.getElementById("slotId");
+        var searchDoctorDivdisplayBlock = document.getElementById("searchDoctor");
+        var slotMsgDisplay = document.getElementById("allslotId");
+             
+        var addSlotMsgDisplay = document.getElementById("addSoltMsg");
+        
+        httpReq.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                if (this.response != "[]") {
+                    isLoggedIn = true;
+                    var parseResponse = JSON.parse(this.response);
+                    var role = parseResponse[0].role;
+                    var mobileNumber = parseResponse[0].mobileNumber;
+                    var userName = parseResponse[0].userName;
+                    var address = parseResponse[0].address;
+                    var email = parseResponse[0].email;
+
+                    var jsonObject = { id: loginId, password: password, role: role, mobileNumber: mobileNumber, userName: userName, address: address};
+                    sessionStorage.setItem("loggedInUserDetails", JSON.stringify(jsonObject));
+                    loginDisplayBlock.style.display = "none";
+                    regDisplayBlock.style.display = "none";
+                    regSuccessdisplayBlock.style.display = "none";
+                    slotDivDisplay.style.display = "none";
+                    searchDoctorDivdisplayBlock.style.display = "none";
+                    slotMsgDisplay.style.display = "none";
+                    addSlotMsgDisplay.style.display = "none";
+                    loginMsgdisplayBlock.style.display = "block";
+                    document.getElementById("loginMsg").innerHTML = "User LoggedIn successfully :";
+                } else {
+                    loginDisplayBlock.style.display = "block";
+                    loginMsgdisplayBlock.style.display = "block";
+                    document.getElementById("loginMsg").innerHTML = "LogIn failure due to incorrect credentials";
+                }
+            }
+        }
+        var id = loginId;
+        var pass = password;
+        var url = "http://localhost:3000/users?id=" + id + "&&password=" + pass;
+        console.log("url :  " + url)
+        httpReq.open("GET", url, true);
+        httpReq.send();
+    }
+
+    function searchDoctor() {
+        // if (isLoggedIn) {
+        getAllDoctorsInformation();
+      //  }
+    }
+    function getAllDoctorsInformation() {
+
+        var searchDoctorDivdisplayBlock = document.getElementById("searchDoctor");
+        var regDisplayBlock = document.getElementById("regDisplay");
+        var loginDisplayBlock = document.getElementById("loginDisplay");
+        var regSuccessdisplayBlock = document.getElementById("userDetailsTable");
+        var loginMsgdisplayBlock = document.getElementById("loginMsgId");
+        var slotDivDisplay = document.getElementById("slotId");
+        var slotMsgDisplay = document.getElementById("allslotId");
+
+        var addSlotMsgDisplay = document.getElementById("addSoltMsg");
+        
+               
+        var httpReq;
+        if (window.XMLHttpRequest) {
+            httpReq = new XMLHttpRequest();
+        } else {
+            httpReq = new ActiveXObject();
+        }
+        httpReq.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                searchDoctorDivdisplayBlock.style.display = "block";
+                regDisplayBlock.style.display = "none";
+                loginDisplayBlock.style.display = "none";
+                regSuccessdisplayBlock.style.display = "none";
+                loginMsgdisplayBlock.style.display = "none";
+                slotDivDisplay.style.display = "none";
+                slotMsgDisplay.style.display = "none";
+                addSlotMsgDisplay.style.display = "none";
+                generate_doctor_table(this.response);
+            }
+        }
+        httpReq.open("GET", "http://localhost:3000/doctorinformation", true);
+        httpReq.send();
+    }
+    function generate_doctor_table(response) {
+
+        document.designMode = "on";
+        // get the reference for the body
+        var body = document.getElementById("searchDoctor");
+
+        // creates a <table> element and a <tbody> element
+        var tbl = document.createElement("table");
+
+        // set table design here
+        // tb1.setAttribute("style","color:lightskyblue;")
+
+        var header = document.createElement('thead');
+        var headingRow = document.createElement('tr');
+
+        // header.style.backgroundColor = green;
+        header.setAttribute("style", "background-color:green; font-size:20px; font-family: Dubai;");
+
+        var headingCell1 = document.createElement('td');
+        var headingText1 = document.createTextNode('DoctorId');
+        headingCell1.appendChild(headingText1);
+        headingRow.appendChild(headingCell1);
+
+        var headingCell2 = document.createElement('td');
+        var headingText2 = document.createTextNode('doctorName');
+        headingCell2.appendChild(headingText2);
+        headingRow.appendChild(headingCell2);
+
+        var headingCell3 = document.createElement('td');
+        var headingText3 = document.createTextNode('availablity');
+        headingCell3.appendChild(headingText3);
+        headingRow.appendChild(headingCell3);
+
+        var headingCell4 = document.createElement('td');
+        var headingText4 = document.createTextNode('mobileNumber');
+        headingCell4.appendChild(headingText4);
+        headingRow.appendChild(headingCell4);
+
+        var headingCell5 = document.createElement('td');
+        var headingText5 = document.createTextNode('slotTime');
+        headingCell5.appendChild(headingText5);
+        headingRow.appendChild(headingCell5);
+
+        var headingCell6 = document.createElement('td');
+        var headingText6 = document.createTextNode('HospitalAddress');
+        headingCell6.appendChild(headingText6);
+        headingRow.appendChild(headingCell6);
+
+        var headingCell7 = document.createElement('td');
+        var headingText7 = document.createTextNode('AppointmentDate');
+        headingCell7.appendChild(headingText7);
+        headingRow.appendChild(headingCell7);
+
+        var actionColumn = document.createElement('td');
+        var actionText = document.createTextNode('Action');
+        actionColumn.appendChild(actionText);
+        headingRow.appendChild(actionColumn);
+        header.appendChild(headingRow)
+        tbl.appendChild(header)
+
+        var tblBody = document.createElement("tbody");
+        var data = JSON.parse(response);
+        var tableRowLength = data.length;
+        if (tableRowLength > 0) {
+            // creating all cells
+            for (var i = 0; i < tableRowLength; i++) {
+                // creates a table row
+                var row = document.createElement("tr");
+
+                var td1 = document.createElement("td");
+                var td1Text = document.createTextNode(data[i].id);
+                td1.appendChild(td1Text);
+                row.appendChild(td1);
+
+                var td2 = document.createElement("td");
+                var td2Text = document.createTextNode(data[i].doctorName);
+                td2.appendChild(td2Text);
+                row.appendChild(td2);
+
+                var td3 = document.createElement("td");
+                var td3Text = document.createTextNode(data[i].availablity);
+                td3.appendChild(td3Text);
+                row.appendChild(td3);
+
+                var td4 = document.createElement("td");
+                var td4Text = document.createTextNode(data[i].mobileNumber);
+                td4.appendChild(td4Text);
+                row.appendChild(td4);
+
+                var td5 = document.createElement("td");
+                var td5Text = document.createTextNode(data[i].slotTime);
+                td5.appendChild(td5Text);
+                row.appendChild(td5);
+
+                var td6 = document.createElement("td");
+                var td6Text = document.createTextNode(data[i].hospitalAddress);
+                td6.appendChild(td6Text);
+                row.appendChild(td6);
+
+                var td7 = document.createElement("td");
+                var td7Text = document.createTextNode(data[i].date);
+                td7.appendChild(td7Text);
+                row.appendChild(td7);
+
+                var td8 = document.createElement('td');
+                var appointmentBtn = document.createElement('button');
+                appointmentBtn.addEventListener('click', function () {
+                    var data = this.parentElement.parentElement.cells;
+                    var sessionStorageData = sessionStorage.getItem("loggedInUserDetails");
+                    var userData = JSON.parse(sessionStorageData);
+                    var patientName = userData.userName;
+                    var patientMobileNumber = userData.mobileNumber;
+                    var xrandom = "AP" + Math.floor((Math.random() * 100) + 1);
+                    var jsonObject = {
+                        id: xrandom, doctorName: data[1].innerHTML, doctorEmailaddress:data[0].innerHTML, availablity: data[2].innerHTML,
+                        patientMobileNumber:patientMobileNumber, patientName: patientName, slotTime: data[4].innerHTML, date: data[6].innerHTML, hospitalAddress:data[5].innerHTML
+                    };
+                    sessionStorage.setItem("patientDetails", JSON.stringify(jsonObject));
+                    savePatientDetails(jsonObject);
+                })
+
+                var appointmentBtnText = document.createTextNode('BookAppointment');
+                appointmentBtn.appendChild(appointmentBtnText);
+
+                td8.appendChild(appointmentBtn);
+                row.appendChild(td8);
+
+                // add the row to the end of the table body
+                tblBody.appendChild(row);
+            }
+        }
+        // put the <tbody> in the <table>
+        tbl.appendChild(tblBody);
+        // appends <table> into <body>
+        body.appendChild(tbl);
+        // sets the border attribute of tbl to 1;
+        tbl.setAttribute("border", "1");
+    }
+
+    function savePatientDetails(jsonObject) {
+
+        var patientData = jsonObject;
+        var xhttp;
+        if (window.XMLHttpRequest) {
+            xhttp = new XMLHttpRequest();
+        } else {
+            xhttp = new ActiveXObject();
+        }
+        var slotDivDisplay = document.getElementById("slotId");
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 201) {
+                slotDivDisplay.style.display = "block";
+                document.getElementById("cartMsg").innerHTML = " You  Booking Appointment for doctor " + patientData.doctorName +" is successfully :";
+                JSON.parse(this.response);
+            }
+        }
+        xhttp.open("POST", "http://localhost:3000/appointment", true);
+        xhttp.setRequestHeader("Content-type", "application/json");
+        console.log(JSON.stringify(patientData))
+        xhttp.send(JSON.stringify(patientData));
+
+    }
+    function addSolt() {
+        var searchDoctorDivdisplayBlock = document.getElementById("searchDoctor");
+        var regDisplayBlock = document.getElementById("regDisplay");
+        var loginDisplayBlock = document.getElementById("loginDisplay");
+        var regSuccessdisplayBlock = document.getElementById("userDetailsTable");
+        var loginMsgdisplayBlock = document.getElementById("loginMsgId");
+        var slotDivDisplay = document.getElementById("slotId");
+        var slotMsgDisplay = document.getElementById("allslotId");
+        var addSlotMsgDisplay = document.getElementById("addSoltMsg");
+      
+        if (isLoggedIn) {
+            var sessionStorageData = sessionStorage.getItem("loggedInUserDetails");
+            var userData = JSON.parse(sessionStorageData);
+            var role = userData.role;
+            var doctorEmail = userData.id;
+            if (role == "Doctor") {
+                getAppointmentDetails(doctorEmail);
+
+            } else {
+                searchDoctorDivdisplayBlock.style.display = "none";
+                regDisplayBlock.style.display = "none";
+                loginDisplayBlock.style.display = "none";
+                regSuccessdisplayBlock.style.display = "none";
+                loginMsgdisplayBlock.style.display = "none";
+                slotDivDisplay.style.display = "none";
+                slotMsgDisplay.style.display = "none";
+                addSlotMsgDisplay.style.display = "block";
+
+                document.getElementById("allorders").innerHTML = " You  Don't have permission to add slot";
+
+            }
+        }
+
+    }
+
+    function getAppointmentDetails(doctorEmail) {
+
+        var doctorEmail = doctorEmail;
+
+        
+        var regDisplayBlock = document.getElementById("regDisplay");
+        var loginDisplayBlock = document.getElementById("loginDisplay");
+        var regSuccessdisplayBlock = document.getElementById("userDetailsTable");
+        var loginMsgdisplayBlock = document.getElementById("loginMsgId");
+        var slotDivDisplay = document.getElementById("slotId");
+        var slotMsgDisplay = document.getElementById("allslotId");
+        var addSlotMsgDisplay = document.getElementById("addSoltMsg");
+        var searchDoctorDivdisplayBlock = document.getElementById("searchDoctor");
+
+        var httpReq;
+        if (window.XMLHttpRequest) {
+            httpReq = new XMLHttpRequest();
+        } else {
+            httpReq = new ActiveXObject();
+        }
+        httpReq.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                searchDoctorDivdisplayBlock.style.display = "none";
+                regDisplayBlock.style.display = "none";
+                loginDisplayBlock.style.display = "none";
+                regSuccessdisplayBlock.style.display = "none";
+                loginMsgdisplayBlock.style.display = "none";
+                slotDivDisplay.style.display = "none";
+                slotMsgDisplay.style.display = "none";
+                addSlotMsgDisplay.style.display = "block";
+                if (this.response!="[]") {
+                    generate_slot_table(this.response);
+                } else {
+                    document.getElementById("allorders").innerHTML = " You  Don't have any slot till now";
+                }
+               
+            }
+        }
+        httpReq.open("GET", "http://localhost:3000/appointment?doctorEmailaddress=" + doctorEmail, true);
+        httpReq.send();
+    }
+    function generate_slot_table(response) {
+         document.designMode = "on";
+        // get the reference for the body
+        var body = document.getElementById("addSoltMsg");
+
+        // creates a <table> element and a <tbody> element
+        var tbl = document.createElement("table");
+
+        // set table design here
+        // tb1.setAttribute("style","color:lightskyblue;")
+
+        var header = document.createElement('thead');
+        var headingRow = document.createElement('tr');
+
+        // header.style.backgroundColor = green;
+        header.setAttribute("style", "background-color:green; font-size:20px; font-family: Dubai;");
+
+        var headingCell1 = document.createElement('td');
+        var headingText1 = document.createTextNode('appointmentId');
+        headingCell1.appendChild(headingText1);
+        headingRow.appendChild(headingCell1);
+
+        var headingCell2 = document.createElement('td');
+        var headingText2 = document.createTextNode('doctorName');
+        headingCell2.appendChild(headingText2);
+        headingRow.appendChild(headingCell2);
+
+        var headingCell3 = document.createElement('td');
+        var headingText3 = document.createTextNode('doctorEmailaddress');
+        headingCell3.appendChild(headingText3);
+        headingRow.appendChild(headingCell3);
+
+        var headingCell4 = document.createElement('td');
+        var headingText4 = document.createTextNode('availablity');
+        headingCell4.appendChild(headingText4);
+        headingRow.appendChild(headingCell4);
+
+        var headingCell5 = document.createElement('td');
+        var headingText5 = document.createTextNode('patientMobileNumber');
+        headingCell5.appendChild(headingText5);
+        headingRow.appendChild(headingCell5);
+
+        var headingCell6 = document.createElement('td');
+        var headingText6 = document.createTextNode('patientName');
+        headingCell6.appendChild(headingText6);
+        headingRow.appendChild(headingCell6);
+
+        var headingCell7 = document.createElement('td');
+        var headingText7 = document.createTextNode('slotTime');
+        headingCell7.appendChild(headingText7);
+        headingRow.appendChild(headingCell7);
+
+        var headingCell8 = document.createElement('td');
+        var headingText8 = document.createTextNode('AppointmentDate');
+        headingCell8.appendChild(headingText8);
+        headingRow.appendChild(headingCell8);
+
+        var headingCell9 = document.createElement('td');
+        var headingText9 = document.createTextNode('HospitalAddress');
+        headingCell9.appendChild(headingText9);
+        headingRow.appendChild(headingCell9);
+
+
+        var actionColumn = document.createElement('td');
+        var actionText = document.createTextNode('Action');
+        actionColumn.appendChild(actionText);
+        headingRow.appendChild(actionColumn);
+        header.appendChild(headingRow)
+        tbl.appendChild(header)
+
+        var tblBody = document.createElement("tbody");
+        var data = JSON.parse(response);
+        var tableRowLength = data.length;
+        if (tableRowLength > 0) {
+            // creating all cells
+            for (var i = 0; i < tableRowLength; i++) {
+                // creates a table row
+                var row = document.createElement("tr");
+
+                var td1 = document.createElement("td");
+                var td1Text = document.createTextNode(data[i].id);
+                td1.appendChild(td1Text);
+                row.appendChild(td1);
+
+                var td2 = document.createElement("td");
+                var td2Text = document.createTextNode(data[i].doctorName);
+                td2.appendChild(td2Text);
+                row.appendChild(td2);
+
+                var td3 = document.createElement("td");
+                var td3Text = document.createTextNode(data[i].doctorEmailaddress);
+                td3.appendChild(td3Text);
+                row.appendChild(td3);
+
+                var td4 = document.createElement("td");
+                var td4Text = document.createTextNode(data[i].availablity);
+                td4.appendChild(td4Text);
+                row.appendChild(td4);
+
+                var td5 = document.createElement("td");
+                var td5Text = document.createTextNode(data[i].patientMobileNumber);
+                td5.appendChild(td5Text);
+                row.appendChild(td5);
+
+                var td6 = document.createElement("td");
+                var td6Text = document.createTextNode(data[i].patientName);
+                td6.appendChild(td6Text);
+                row.appendChild(td6);
+
+                var td7 = document.createElement("td");
+                var td7Text = document.createTextNode(data[i].slotTime);
+                td7.appendChild(td7Text);
+                row.appendChild(td7);
+
+                var td8 = document.createElement("td");
+                var td8Text = document.createTextNode(data[i].date);
+                td8.appendChild(td8Text);
+                row.appendChild(td8);
+
+                var td9 = document.createElement("td");
+                var td9Text = document.createTextNode(data[i].hospitalAddress);
+                td9.appendChild(td9Text);
+                row.appendChild(td9);
+
+                var td10 = document.createElement('td');
+                var addsoltBtn = document.createElement('button');
+                addsoltBtn.addEventListener('click', function () {
+                    var data = this.parentElement.parentElement.cells;
+                    var sessionStorageData = sessionStorage.getItem("loggedInUserDetails");
+                    var userData = JSON.parse(sessionStorageData);
+                    var patientName = userData.userName;
+                    var patientMobileNumber = userData.mobileNumber;
+                    var xrandom = "SL" + Math.floor((Math.random() * 100) + 1);
+                    var jsonObject = {
+                        id: xrandom, doctorName: data[1].innerHTML, doctorEmailaddress: data[0].innerHTML, availablity: data[2].innerHTML,
+                        patientMobileNumber: patientMobileNumber, patientName: patientName, slotTime: data[4].innerHTML, date: data[6].innerHTML, hospitalAddress: data[5].innerHTML
+                    };
+                    var deletejsonObject = {
+                        id: data[0].innerHTML, doctorName: data[1].innerHTML, doctorEmailaddress: data[2].innerHTML, availablity: data[3].innerHTML,
+                        patientMobileNumber: data[4].innerHTML, patientName: data[5].innerHTML, slotTime: data[6].innerHTML,
+                        date: data[7].innerHTML, hospitalAddress: data[8].innerHTML
+                    };
+                    sessionStorage.setItem("slotDetails", JSON.stringify(jsonObject));
+                    saveSlotDetails(jsonObject, deletejsonObject);
+                })
+
+                var appointmentBtnText = document.createTextNode('Addslot');
+                addsoltBtn.appendChild(appointmentBtnText);
+
+                td10.appendChild(addsoltBtn);
+                row.appendChild(td10);
+
+                // add the row to the end of the table body
+                tblBody.appendChild(row);
+            }
+        }
+        // put the <tbody> in the <table>
+        tbl.appendChild(tblBody);
+        // appends <table> into <body>
+        body.appendChild(tbl);
+        // sets the border attribute of tbl to 1;
+        tbl.setAttribute("border", "1");
+    }
+
+    function saveSlotDetails(jsonObject, deletejsonObject) {
+
+        var addSlot = "addSlot";
+        var slotData = jsonObject;
+        var appointmentData = deletejsonObject;
+        var xhttp;
+        if (window.XMLHttpRequest) {
+            xhttp = new XMLHttpRequest();
+        } else {
+            xhttp = new ActiveXObject();
+        }
+        var slotDivDisplay = document.getElementById("addSoltMsg");
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 201) {
+                slotDivDisplay.style.display = "block";
+                document.getElementById("allorders").innerHTML = " Your slot is added successfully :";
+                JSON.parse(this.response);
+                deleteFromAppointment(appointmentData,addSlot);
+            }
+        }
+        xhttp.open("POST", "http://localhost:3000/slots", true);
+        xhttp.setRequestHeader("Content-type", "application/json");
+        console.log(JSON.stringify(slotData))
+        xhttp.send(JSON.stringify(slotData));
+    }
+    function deleteFromAppointment(appointmentData, addSlot) {
+        var appData = appointmentData;
+        var xhttp;
+        if (window.XMLHttpRequest) {
+            xhttp = new XMLHttpRequest();
+        } else {
+            xhttp = new ActiveXObject();
+        }
+      
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+               JSON.parse(this.response);
+               }
+        }
+
+        xhttp.open("DELETE", "http://localhost:3000/appointment/" + appData.id, true);
+        xhttp.setRequestHeader("Content-type", "application/json");
+        console.log(appData)
+        xhttp.send();
+
+    }
+</script>

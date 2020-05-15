@@ -1,0 +1,218 @@
+{
+  "users": [
+    {
+      "id": "abc1234@gmail.com",
+      "userName": "sdfsf",
+      "password": "abc",
+      "mobileNumber": "1233456786",
+      "address": "DEL",
+      "role": "patient"
+    },
+    {
+      "id": "abc12@gmail.com",
+      "userName": "Dhananjay",
+      "password": "abc",
+      "mobileNumber": "1233456786",
+      "address": "DEL",
+      "role": "Doctor"
+    },
+    {
+      "id": "def@gmail.com",
+      "userName": "Samal",
+      "password": "Dpl1YWyu1X",
+      "mobileNumber": "1233456786",
+      "address": "DEL",
+      "role": "Doctor"
+    },
+    {
+      "id": "abc@gmail.com",
+      "userName": "DS",
+      "password": "abc",
+      "mobileNumber": "1233456786",
+      "address": "DEL",
+      "role": "Doctor"
+    },
+    {
+      "id": "hari@gmail.com",
+      "userName": "Hari",
+      "password": "mF03VB2ZRY",
+      "mobileNumber": "1233456786",
+      "address": "DEL",
+      "role": "Doctor"
+    },
+    {
+      "id": "sita@gmail.com",
+      "userName": "Sita",
+      "password": "eFRYu246rE",
+      "mobileNumber": "1233456786",
+      "address": "DEL",
+      "role": "Doctor"
+    },
+    {
+      "id": "gonvind@gmail.com",
+      "userName": "Govind",
+      "password": "xtineBAeKT",
+      "mobileNumber": "1234567890",
+      "address": "DEL",
+      "role": "Doctor"
+    },
+    {
+      "id": "abc89@gmail.com",
+      "userName": "sdfsfsdfdsfsdfsdfsdf",
+      "password": "FLTXOrj05v",
+      "mobileNumber": "1233456786",
+      "address": "DEL",
+      "role": "Doctor"
+    },
+    {
+      "id": "abc120@gmail.com",
+      "userName": "sadasdasdasdas",
+      "password": "TZFgrv3Urj",
+      "mobileNumber": "1233456786",
+      "address": "DEL",
+      "role": "Doctor"
+    },
+    {
+      "id": "a100@gmail.com",
+      "userName": "rtetrtrterter",
+      "password": "3RzTeB7zTH",
+      "mobileNumber": "1233456786",
+      "address": "DEL",
+      "role": "Doctor"
+    },
+    {
+      "id": "abc1204@gmail.com",
+      "userName": "sdfsf",
+      "password": "Jv4AXEBNxO",
+      "mobileNumber": "1233456786",
+      "address": "DEL",
+      "role": "Doctor"
+    }
+  ],
+  "doctorinformation": [
+    {
+      "id": "abc12@gmail.com",
+      "doctorName": "Dhananjay",
+      "availablity": "Yes",
+      "mobileNumber": "1233456786",
+      "slotTime": "from 12.30PM to 5 PM",
+      "date": "20-05-2020",
+      "hospitalAddress": "HYD"
+    },
+    {
+      "id": "abc1@gmail.com",
+      "doctorName": "DS",
+      "availablity": "Yes",
+      "mobileNumber": "1233456786",
+      "slotTime": "from 9.30AM to 2 PM,from 4.30AM to 6 PM",
+      "hospitalAddress": "DEL",
+      "date": "2020-05-14T21:29:59.345Z"
+    },
+    {
+      "id": "sita@gmail.com",
+      "doctorName": "Sita",
+      "availablity": "Yes",
+      "mobileNumber": "1233456786",
+      "slotTime": "from 9.30AM to 2 PM,from 4.30AM to 6 PM",
+      "hospitalAddress": "DEL",
+      "date": "2020-05-15T10:26:58.981Z"
+    },
+    {
+      "id": "abc120@gmail.com",
+      "doctorName": "sadasdasdasdas",
+      "availablity": "Yes",
+      "mobileNumber": "1233456786",
+      "slotTime": "from 9.30AM to 2 PM,from 4.30AM to 6 PM",
+      "hospitalAddress": "DEL",
+      "date": "2020-05-15T10:43:16.006Z"
+    },
+    {
+      "id": "a100@gmail.com",
+      "doctorName": "rtetrtrterter",
+      "availablity": "Yes",
+      "mobileNumber": "1233456786",
+      "slotTime": "from 9.30AM to 2 PM,from 4.30AM to 6 PM",
+      "hospitalAddress": "DEL",
+      "date": "2020-05-15T10:53:25.071Z"
+    },
+    {
+      "id": "abc1204@gmail.com",
+      "doctorName": "sdfsf",
+      "availablity": "Yes",
+      "mobileNumber": "1233456786",
+      "slotTime": "from 9.30AM to 2 PM,from 4.30AM to 6 PM",
+      "hospitalAddress": "DEL",
+      "date": "2020-05-15T10:54:59.427Z"
+    }
+  ],
+  "appointment": [
+    {
+      "id": "AP96",
+      "doctorName": "DS",
+      "doctorEmailaddress": "abc1@gmail.com",
+      "availablity": "Yes",
+      "patientMobileNumber": "1233456786",
+      "patientName": "sdfsf",
+      "slotTime": "from 9.30AM to 2 PM,from 4.30AM to 6 PM",
+      "date": "2020-05-14T21:29:59.345Z",
+      "hospitalAddress": "DEL"
+    },
+    {
+      "id": "AP24",
+      "doctorName": "DS",
+      "doctorEmailaddress": "abc1@gmail.com",
+      "availablity": "Yes",
+      "patientMobileNumber": "1233456786",
+      "patientName": "sdfsf",
+      "slotTime": "from 9.30AM to 2 PM,from 4.30AM to 6 PM",
+      "date": "2020-05-14T21:29:59.345Z",
+      "hospitalAddress": "DEL"
+    },
+    {
+      "id": "AP40",
+      "doctorName": "Dhananjay",
+      "doctorEmailaddress": "abc12@gmail.com",
+      "availablity": "Yes",
+      "patientMobileNumber": "1233456786",
+      "patientName": "sdfsf",
+      "slotTime": "from 12.30PM to 5 PM",
+      "date": "20-05-2020",
+      "hospitalAddress": "HYD"
+    },
+    {
+      "id": "AP60",
+      "doctorName": "Dhananjay",
+      "doctorEmailaddress": "abc12@gmail.com",
+      "availablity": "Yes",
+      "patientMobileNumber": "1233456786",
+      "patientName": "DS",
+      "slotTime": "from 12.30PM to 5 PM",
+      "date": "20-05-2020",
+      "hospitalAddress": "HYD"
+    }
+  ],
+  "slots": [
+    {
+      "id": "AP46",
+      "doctorName": "Dhananjay",
+      "doctorEmailaddress": "AP1",
+      "availablity": "abc@gmail.com",
+      "patientMobileNumber": "1233456786",
+      "patientName": "DS",
+      "slotTime": "1233456786",
+      "date": "from 12.30PM to 5 PM",
+      "hospitalAddress": "xyz"
+    },
+    {
+      "id": "SL36",
+      "doctorName": "Dhananjay",
+      "doctorEmailaddress": "AP1",
+      "availablity": "abc@gmail.com",
+      "patientMobileNumber": "1233456786",
+      "patientName": "DS",
+      "slotTime": "1233456786",
+      "date": "from 12.30PM to 5 PM",
+      "hospitalAddress": "xyz"
+    }
+  ]
+}
